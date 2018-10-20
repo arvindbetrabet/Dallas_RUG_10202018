@@ -1,0 +1,555 @@
+Dallas RUG - October 20, 2018
+========================================================
+author: Vish Kamat, IBM  Arvind Betrabet, PhD, IBM
+date: 
+autosize: true
+width: 1440
+
+<style>
+
+/* slide titles */
+.reveal h3 { 
+  font-size: 60px;
+  color: blue;
+  margin-top: 0px;
+}
+
+.reveal .slides section .slideContent {
+   font-size: 25px;
+   color: green;
+}
+.reveal .slides section h2{
+   font-size: 30px;
+   color: red;
+   margin-top: 25px;
+}
+
+</style>
+
+
+Arithmetic Operators - 1
+========================================================
+```{r setup, include=FALSE}
+library(reticulate)
+use_python("C:\\Users\\ArvindBetrabet\\Anaconda5\\python.exe")
+```
+## R Syntax
+
+```{r}
+#Assignment
+a<-1; b<-2
+
+#Addition
+a + b
+
+#Subtraction
+a - b
+
+
+```
+
+
+***
+## Python Syntax
+
+```{python}
+
+#Assignment
+a=1; b=2
+print(a + b)
+
+
+print(a - b) #Subtraction
+
+
+print(a * b) #Multiplication
+
+
+```
+
+Aritmetic Operators - 2
+========================================================
+## R Syntax
+
+```{r}
+
+#Multiplication
+a * b
+
+#Division
+a / b
+
+#Power
+a ^ b
+```
+
+
+***
+## Python Syntax
+
+```{python}
+
+
+print(a * b) #Multiplication
+
+
+print(a / b) #Division
+
+
+print(a**b) #Power
+
+
+```
+
+Relational Operators - 1
+========================================================
+
+## R Syntax
+
+```{r}
+#Equal
+a == b
+
+#Less than
+a < b
+
+#Greater than
+a > b
+
+```
+
+
+***
+## Python Syntax
+
+```{python}
+
+#Equal
+print(a == b)
+
+print(a < b) #Less than
+
+print(a > b) #Greater than
+
+```
+
+Relational Operators - 2
+========================================================
+
+## R Syntax
+
+```{r}
+
+#Less than or equal
+a <= b
+
+#Greater than or equal
+a >= b
+
+#Not Equal
+a != b
+
+
+```
+
+
+***
+## Python Syntax
+
+```{python}
+
+#Equal
+
+print(a <= b) #Less than or equal
+
+print(a >= b) #Greater than or equal
+
+print(a != b) #Not Equal
+
+
+```
+
+Logical Operators - 1
+========================================================
+
+## R Syntax
+
+```{r}
+X <- TRUE; Y <- TRUE
+notX <- FALSE; notY <- FALSE
+
+#logical AND 
+X && Y; X && notY
+
+#logical OR
+X || Y; notX || notY
+
+#bit-wise logical AND
+bitwAnd(a, b)
+
+
+```
+
+
+***
+## Python Syntax
+
+```{python}
+X = True; Y = True
+notX = False; notY = False
+#logical AND
+print(X and Y);print(X and notY);print(notX and Y);print(notX and notY)
+
+# logical OR
+print(X or Y);print(X or notY);print(notX or Y);print(notX or notY)
+
+#bit-wise logical AND
+print(a & b)
+
+
+```
+
+Logical Operators - 2
+========================================================
+
+## R Syntax
+
+```{r}
+#bit-wise logical OR
+bitwOr(a, b)
+
+#Logical EXCLUSIVE OR
+xor(1, 0)
+
+#Logical NOT
+!a
+
+
+
+```
+
+
+***
+## Python Syntax
+
+```{python}
+
+print(a | b) #bit-wise logical OR
+print(X ^ Y), print(notX ^ Y) #Logical EXCLUSIVE OR
+print(not X) # Logical NOT
+
+```
+
+
+Vectors - 1
+========================================================
+
+## R Syntax
+
+```{r}
+
+#Row vector - 1xn matrix
+rowVector <- c(2,3,4,5)
+rowVector
+
+#Column vector
+columnVector <- t(c(2,3,4,5))
+columnVector
+
+```
+
+
+***
+## Python Syntax
+
+```{python}
+import numpy as np
+rowVector2 = np.array([2,3,4,5])
+print(rowVector2)
+print(rowVector2.shape)
+
+columnVector2 = np.array([rowVector2])
+print(columnVector2.T)
+print(columnVector2.shape)
+
+
+```
+
+
+Vectors - 2
+========================================================
+
+## R Syntax
+
+```{r}
+#Concatenate two vectors
+c(rowVector,rowVector)
+c(1:4,rowVector)
+
+#Multiply two vectors
+rowVector*rowVector
+
+```
+
+
+***
+## Python Syntax
+
+```{python}
+import numpy as np
+#Concatenate two vectors
+print(np.concatenate((rowVector2,rowVector2)))
+
+print(np.concatenate((range(1,5),rowVector2), axis=0))
+
+#Multiply two vectors
+print(rowVector2*rowVector2)
+#Vector dot product
+print(np.dot(rowVector2,rowVector2))
+
+```
+
+
+Matrices - 1
+========================================================
+
+
+## R Syntax
+
+```{r}
+#Define a matrix
+matrix_R_1 = rbind(c(2,3),c(4,5))
+matrix_R_2 = array(c(6,8,7,9), dim=c(2,2))
+matrix_R_1
+matrix_R_2
+
+
+
+```
+
+
+***
+
+## Python Syntax
+
+```{python}
+import numpy as np
+
+
+#Define a matrix
+matrix_P_1 = np.array([[2,3],[4,5]])
+print(matrix_P_1)
+
+matrix_P_2 = np.array([[6,7],[8,9]])
+print(matrix_P_2)
+
+
+```
+
+Matrices - 2
+========================================================
+
+
+## R Syntax
+
+```{r}
+#Concatenate Matices
+
+#Bind rows 
+rbind(matrix_R_1,matrix_R_2)
+
+#Bind columns
+cbind(matrix_R_1,matrix_R_2)
+```
+
+
+***
+
+## Python Syntax
+
+```{python}
+#Bind rows
+print(np.concatenate((matrix_P_1, matrix_P_2), axis=0))
+print(np.vstack((matrix_P_1,matrix_P_2)))
+
+#Bind column
+print(np.concatenate((matrix_P_1,matrix_P_2), axis=1))
+print(np.hstack((matrix_P_1,matrix_P_1)))
+
+
+```
+
+Matrices - 3
+========================================================
+
+
+## R Syntax
+
+```{r}
+#Element-wise Matrix Multiplication
+
+matrix_R_1 * matrix_R_2
+
+#Matirx dot product
+
+matrix_R_1 %*% matrix_R_2
+```
+
+
+***
+
+## Python Syntax
+
+```{python}
+#Element-wise Matrix Multiplication
+
+print(matrix_P_1 * matrix_P_2)
+print(np.multiply(matrix_P_1, matrix_P_2))
+
+#Matrix dot product
+print(np.dot(matrix_P_1, matrix_P_2))
+
+
+
+```
+
+Basic x-y Plot
+========================================================
+
+
+## R Syntax
+
+```{r}
+set.seed(123)
+NumVar1 = round(rnorm(n = 50, mean = 1000, sd = 50), digits = 2)  ## Normal distribution
+
+plot(NumVar1, type = "l")  ## Index plot
+
+```
+
+
+***
+
+## Python Syntax
+
+```{python}
+import os
+os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/ArvindBetrabet/Anaconda5/Library/plugins/platforms'
+
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+NumVar2 = np.random.normal(1000, 50, 50)
+
+matplotlib.use('TKAgg')
+
+plt.plot(NumVar2)
+plt.ylabel('some numbers')
+plt.show()
+plt.close()
+
+
+
+
+```
+
+Basic Histogram Plot
+========================================================
+
+
+## R Syntax
+
+```{r}
+hist(rnorm(1000))
+
+```
+
+
+***
+
+## Python Syntax
+
+```{python}
+
+#import numpy as np
+NumVar3 = np.random.standard_normal((1000,))
+
+
+
+plt.hist(NumVar3)
+plt.ylabel('Hist')
+plt.show()
+plt.close()
+
+
+```
+
+Basic Statistics
+========================================================
+
+
+## R Syntax
+
+```{r}
+arrayR <- c(1, 2, 3, 6, 8, 9)
+
+#Mean
+mean(arrayR)
+
+#Median
+median(arrayR)
+
+#Standard Deviation
+sd(arrayR)
+
+```
+
+
+***
+
+## Python Syntax
+
+```{python}
+import statistics as stat
+arrayP = [1, 2, 3, 6, 8, 9]
+
+#Mean
+print(stat.mean(arrayP))
+
+#Median
+print(stat.median(arrayP))
+
+#Standard Deviation
+print(stat.stdev(arrayP))
+
+
+```
+Programming
+========================================================
+
+
+## R Syntax
+
+```{r echo=FALSE}
+cat('R Script file Extension - .R')
+
+cat('Comment symbol (rest of line) - #')
+
+cat('Import library functions - library(reticulate)')
+
+```
+
+
+***
+
+## Python Syntax
+
+```{python echo=FALSE}
+print("Python script file Extension - .py")
+
+print("Comment symbol (rest of line) - #")
+
+print("Import library functions - import numpy as np")
+```
+
+
